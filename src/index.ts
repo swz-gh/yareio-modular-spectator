@@ -1,6 +1,6 @@
-/// <reference path="./BaseHUD.ts" />
-/// <reference path="./BattleHUD.ts" />
-/// <reference path="./UnitGraph.ts" />
+import BattleHUD from "./BattleHUD";
+import BaseHUD from "./BaseHUD";
+import UnitGraph from "./UnitGraph";
 
 var world_initiated = 0;
 var battleHud: BattleHUD = new BattleHUD();

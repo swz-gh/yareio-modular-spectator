@@ -1,12 +1,14 @@
 class UnitGraph {
-  constructor() {
+  constructor(battleHud: any) {
     this.graphData = [];
     this.lastTData = null;
+    this.battleHud = battleHud;
   }
 
   graphData: { tick: number; values: number[] }[];
   lastTData: any;
   graphIndex: number = 0;
+  battleHud: any;
 
   buildGraphData() {
     let w = window as any;
@@ -36,22 +38,24 @@ class UnitGraph {
 
   drawGraph(index: number, color: string) {
     if (this.graphData.length > 0) {
-      battleHud.ctx.strokeStyle = color;
-      battleHud.ctx.beginPath();
-      let x = battleHud.hud.width;
-      battleHud.ctx.moveTo(
+      this.battleHud.ctx.strokeStyle = color;
+      this.battleHud.ctx.beginPath();
+      let x = this.battleHud.hud.width;
+      this.battleHud.ctx.moveTo(
         --x,
-        battleHud.hud.height - 80 - this.graphData[0].values[index]
+        this.battleHud.hud.height - 80 - this.graphData[0].values[index]
       );
       console.log(this.graphData);
       this.graphData.forEach((data) => {
-        battleHud.ctx.lineTo(
+        this.battleHud.ctx.lineTo(
           --x,
-          battleHud.hud.height - 80 - data.values[index]
+          this.battleHud.hud.height - 80 - data.values[index]
         );
       });
 
-      battleHud.ctx.stroke();
+      this.battleHud.ctx.stroke();
     }
   }
 }
+
+export default UnitGraph;

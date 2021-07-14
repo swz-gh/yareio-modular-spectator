@@ -1,3 +1,6 @@
+import BaseHUD from "./BaseHUD";
+import UnitGraph from "./UnitGraph";
+
 class BattleHUD {
   hud: HTMLCanvasElement;
   ctx: CanvasRenderingContext2D;
@@ -23,10 +26,10 @@ class BattleHUD {
 
     this.basesHud = [];
     bases.forEach((x) => {
-      this.basesHud.push(new BaseHUD(x));
+      this.basesHud.push(new BaseHUD(x, this));
     });
 
-    this.unitGraph = new UnitGraph();
+    this.unitGraph = new UnitGraph(this);
   }
 
   render() {
@@ -68,3 +71,5 @@ class BattleHUD {
     this.currentLineYPos += 20;
   }
 }
+
+export default BattleHUD;

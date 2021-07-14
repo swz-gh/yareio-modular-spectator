@@ -1,3 +1,5 @@
+import BattleHUD from "./BattleHUD";
+
 class BaseHUD {
   prevBaseEnergy: number;
   base: Base;
@@ -6,9 +8,11 @@ class BaseHUD {
   totalEconomyScore: number;
   totalEconomyEfficiency: number;
   economyScoreCount: number;
+  battleHud: BattleHUD;
 
-  constructor(base: Base) {
+  constructor(base: Base, battleHud: BattleHUD) {
     this.base = base;
+    this.battleHud = battleHud;
     this.prevBaseEnergy = 0;
     this.economyScore = 0;
     this.totalEconomyScore = 0;
@@ -37,9 +41,9 @@ class BaseHUD {
   }
 
   render() {
-    battleHud.ctx.fillStyle = this.base.color;
-    battleHud.printText(`${this.base.player_id}`);
-    battleHud.currentLineYPos += 6;
+    this.battleHud.ctx.fillStyle = this.base.color;
+    this.battleHud.printText(`${this.base.player_id}`);
+    this.battleHud.currentLineYPos += 6;
     let units = living_spirits.filter(
       (x) => x.player_id == this.base.player_id && x.hp != 0
     );
@@ -53,27 +57,31 @@ class BaseHUD {
       0
     );
 
-    battleHud.printText(`Unit Count: ${Math.trunc(unitCount)}`);
-    battleHud.printText(`Dead Units: ${Math.trunc(deadUnits)}`);
-    battleHud.printText(`Energy: ${Math.trunc(totalEnergy)}`);
-    battleHud.printText(`Energy Capacity: ${Math.trunc(totalEnergyCapacity)}`);
-    battleHud.printText(
+    this.battleHud.printText(`Unit Count: ${Math.trunc(unitCount)}`);
+    this.battleHud.printText(`Dead Units: ${Math.trunc(deadUnits)}`);
+    this.battleHud.printText(`Energy: ${Math.trunc(totalEnergy)}`);
+    this.battleHud.printText(
+      `Energy Capacity: ${Math.trunc(totalEnergyCapacity)}`
+    );
+    this.battleHud.printText(
       `Economy Score (energy/s): ${Math.trunc(this.economyScore)}`
     );
-    battleHud.printText(
+    this.battleHud.printText(
       `Avg Economy Score (energy/s): ${Math.trunc(
         this.totalEconomyScore / this.economyScoreCount
       )}`
     );
-    battleHud.printText(
+    this.battleHud.printText(
       `Economic Efficiency: ${this.economyEfficiency.toFixed(2)}`
     );
-    battleHud.printText(
+    this.battleHud.printText(
       `Avg Economic Efficiency: ${(
         this.totalEconomyEfficiency / this.economyScoreCount
       ).toFixed(2)}`
     );
 
-    battleHud.currentLineYPos += 24;
+    this.battleHud.currentLineYPos += 24;
   }
 }
+
+export default BaseHUD;
