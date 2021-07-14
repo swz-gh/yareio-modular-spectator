@@ -1,6 +1,6 @@
 {
   "name": "yareio-polished-spectator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A polished version of yareio-spectator",
   "main": "index.js",
   "scripts": {
