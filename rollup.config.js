@@ -9,7 +9,7 @@ const pkg = JSON.parse(readFileSync("package.json"));
 export default {
   input: "src/index.ts",
   output: {
-    file: "dist/bundle.user.js",
+    file: "dist/script.user.js",
     format: "esm",
   },
   plugins: [
