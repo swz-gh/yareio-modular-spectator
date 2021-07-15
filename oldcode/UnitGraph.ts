@@ -11,8 +11,9 @@ class UnitGraph {
   battleHud: any;
 
   buildGraphData() {
-    let w = window as any;
-
+    let w: any = window;
+    // @ts-ignore
+    console.log(w, window, w.game_blocks, window.game_blocks);
     let gameBlocks: [string, Game_Block][] = Object.entries(w.game_blocks);
 
     if (this.lastTData != w.active_block) {

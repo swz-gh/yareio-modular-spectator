@@ -1,5 +1,8 @@
 import metablock from "rollup-plugin-userscript-metablock";
 import typescript from "@rollup/plugin-typescript";
+import ejs from "rollup-plugin-ejs";
+import url from "@rollup/plugin-url";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
 import { terser } from "rollup-plugin-terser";
 
 import { readFileSync } from "fs";
@@ -13,8 +16,17 @@ export default {
     format: "esm",
   },
   plugins: [
+    nodeResolve(),
+    url({
+      include: ["**/*.css", "**/*.astext.**"],
+    }),
     typescript(),
-    terser(),
+    ejs(),
+    terser({
+      format: {
+        semicolons: false,
+      },
+    }),
     metablock({
       file: "./package.json",
       override: {
@@ -27,7 +39,7 @@ export default {
         supportURL: pkg.bugs.url,
         icon: "https://yare.io/favicon.ico",
         match: "https://yare.io/d*/*",
-        "run-at": "document-start",
+        "run-at": "document-idle",
       },
     }),
   ],

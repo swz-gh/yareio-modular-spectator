@@ -1,0 +1,11 @@
+<% 
+let data = locals
+%>
+<div class="polished-spectator-module player-data resizable" id=<%= data.id %> >
+  <div class="topBar">
+    <p class="topBarTitle"><%= data.name %></p>
+  </div>
+  <div class="moduleBody">
+    <canvas id=<%= data.id + "-canvas" %> ></canvas>
+  </div>
+</div>
