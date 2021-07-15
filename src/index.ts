@@ -46,7 +46,7 @@ import defaultModuleCSS from "./module.css";
 // @ts-ignore
 const range = (n: number) => [...Array(n).keys()];
 
-console.log("Loaded yareio-spectator (polished)");
+console.log("Loaded yareio-spectator (modular)");
 
 let player1stats = new PlayerStats(0);
 let player1id = "module-" + uuid();
@@ -89,10 +89,10 @@ function tick() {
 }
 
 async function main() {
-  console.log("Running yareio-spectator (polished)");
+  console.log("Running yareio-spectator (modular)");
 
   let container = document.createElement("div");
-  container.classList.add("yareio-polished-spectator-container");
+  container.classList.add("yareio-modular-spectator-container");
 
   document.body.appendChild(container);
 
@@ -100,7 +100,7 @@ async function main() {
   container.innerHTML += `<link rel="stylesheet" href="${defaultModuleCSS}">`;
 
   let modulecontainer = document.createElement("div");
-  modulecontainer.classList.add("yareio-polished-spectator-module-container");
+  modulecontainer.classList.add("yareio-modular-spectator-module-container");
 
   container.appendChild(modulecontainer);
 

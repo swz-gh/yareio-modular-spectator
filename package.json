@@ -1,14 +1,14 @@
 {
-  "name": "yareio-polished-spectator",
+  "name": "yareio-modular-spectator",
   "version": "0.2.0",
-  "description": "A polished version of yareio-spectator",
+  "description": "A modular version of yareio-spectator",
   "main": "index.js",
   "scripts": {
     "build": "rollup -c"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/swz-gh/yareio-polished-spectator.git"
+    "url": "git+https://github.com/swz-gh/yareio-modular-spectator.git"
   },
   "keywords": [
     "yare",
@@ -23,9 +23,9 @@
   "author": "swz",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/swz-gh/yareio-polished-spectator/issues"
+    "url": "https://github.com/swz-gh/yareio-modular-spectator/issues"
   },
-  "homepage": "https://github.com/swz-gh/yareio-polished-spectator#readme",
+  "homepage": "https://github.com/swz-gh/yareio-modular-spectator#readme",
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.0.0",
     "@rollup/plugin-typescript": "^8.2.1",

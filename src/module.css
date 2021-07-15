@@ -1,4 +1,4 @@
-.polished-spectator-module {
+.modular-spectator-module {
   position: absolute;
   z-index: 1000;
   background-color: rgba(127, 127, 127, 0.27);
@@ -10,12 +10,12 @@
   flex-direction: column;
 }
 
-.polished-spectator-module.resizable {
+.modular-spectator-module.resizable {
   resize: both;
   overflow: auto;
 }
 
-.polished-spectator-module .topBar {
+.modular-spectator-module .topBar {
   padding: 10px;
   cursor: move;
   z-index: 10;
